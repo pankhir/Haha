@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #ffccd5;
+            overflow: hidden;
+        }
+        .container {
+            margin-top: 100px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #d6336c;
+        }
+        .btn-container {
+            margin-top: 20px;
+        }
+        button {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        #yes-btn {
+            background-color: #ff4d6d;
+            color: white;
+        }
+        #no-btn {
+            background-color: #ff8fa3;
+            color: white;
+            position: absolute;
+        }
+        #gif-container {
+            margin-top: 20px;
+        }
+        #gif {
+            width: 300px;
+            display: none;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Will you be my Valentine? ❤️</h1>
+        <div class="btn-container">
+            <button id="yes-btn" onclick="showYesGif()">Yes</button>
+            <button id="no-btn" onmouseover="moveButton()">No</button>
+        </div>
+        <p id="message" style="font-size: 1.5rem; color: #d6336c; font-weight: bold;"></p>
+        <div id="gif-container">
+            <img id="gif" src="" alt="Response GIF">
+        </div>
+    </div>
+
+    <script>
+        function showYesGif() {
+            document.getElementById("message").innerText = "Yay! I knew you'd say yes! ❤️🥰";
+            let gif = document.getElementById("gif");
+            gif.src = "https://media.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif"; // Cute romantic GIF
+            gif.style.display = "block";
+        }
+
+        function moveButton() {
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 100);
+            document.getElementById("no-btn").style.left = `${x}px`;
+            document.getElementById("no-btn").style.top = `${y}px`;
+
+            let gif = document.getElementById("gif");
+            gif.src = "https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif"; // Funny "No" reaction GIF
+            gif.style.display = "block";
+        }
+    </script>
+</body>
+</html>
